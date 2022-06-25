@@ -1,17 +1,21 @@
-const jimp = require('jimp');
-
+const skin2D = require('./skin2D.js');
+const nodeFetch = require('node-fetch');
 let URL = 'http://textures.minecraft.net/texture/ac3de5b50fb6174da51032677ead046295486bf682b3ea73e0617a210c4b4f46';
 
 
 async function main() {
-    const headFile1 = await jimp.read(URL);
-    const headFile2 = await jimp.read(URL);
+    let buffer = await Skin();
+    let skin = new skin2D(buffer);
 
-    let head_crop = headFile1.crop(8, 8, 8, 8);
-    let head_crop_2 = headFile2.crop(40, 8, 8, 8);
+    console.log(await skin.getSkin());
 
-    head_crop.composite(head_crop_2, 0, 0).write('head.png')
 }
 
-
 main();
+
+
+
+async function Skin() {
+    let buffer = await nodeFetch(URL).then(res => res.buffer());
+    return buffer;
+}
