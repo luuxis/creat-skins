@@ -1,4 +1,9 @@
-.skin canvas {
-    image-rendering: pixelated;
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(65, 65, 65);
+}
+
+canvas {
     width: 256px;
 }
