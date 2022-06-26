@@ -1,9 +1,10 @@
 html, body {
     margin: 0;
     padding: 0;
-    background-color: rgb(65, 65, 65);
+    background: rgb(47, 47, 47);
 }
 
-canvas {
+img {
     width: 512px;
+    image-rendering: pixelated;
 }
